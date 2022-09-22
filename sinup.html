@@ -1,0 +1,83 @@
+<!--html form-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>E Commerce Web-01</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css"> 
+    
+    
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+<script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
+   <script src="Main.js"></script>
+</head>
+<body>
+
+    <nav class="nav nav_top">
+        <div class="logo">
+            <a href="index.html"><img src="download-removebg-preview.png" width="150"></a>
+        </div>
+        <div class="nav_side">
+         <a class="About" href="about.html">About Us</a>
+         <a class="Blog" href="Blog.html">Blog</a>
+         <a href="contact.html">Contact</a>
+         <a href="sinup.html">Login/Register</a>
+        </div>
+      
+    </nav>
+    
+        <div class="html-form">
+            <form name="Submit-Sheet" method="post">
+                <form onsubmit="return validation()" name="Submit-Sheet" method="post">
+                <h2>Register</h2>
+                <input type="text" id="userName"name="name" placeholder="Enter name" required><br>
+                <span id="errorname"  style="color: red;"></span>
+                <input type="email" name="email"  id="email" placeholder="Email" required><br>
+                <span id="erroremail" name="name" style="color: red;"></span>
+                <input type="number" id="contact" name="number" placeholder="Enter contact Number"required><br>
+                <span id="errornumber" style="color: red;"></span>
+
+                <select name="Branch" required>
+                    <option>--Branch</option>
+                    <option>IT</option>
+                    <option>Cyber Security</option>
+                    <option>mechanical</option>
+                    <option>civil</option>
+                </select> <br>
+                <select name="Year"  required>
+                    <option>--Year--</option>
+                    <option>1st</option>
+                    <option>2nd</option>
+                    <option>3rd</option>
+                    <option>4th</option>
+
+                </select><br>
+                <button type="submit">Submit</button>
+                <button type="reset">Refresh</button>
+            </form>
+        
+    
+        </div>
+        
+<script type="text/javascript">
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyylyAvqWzjldVGNSS2KHok0Vj4Mh8989uBuKK_jXYUBBSmajhZwcgixh5hbY-F0WVacw/exec';
+    const form = document.forms['Submit-Sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Success"))
+        .catch(error => alert('Error!', error.message))
+    })
+  </script>
+    </body>
+    </html>
